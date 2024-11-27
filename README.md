@@ -4,7 +4,15 @@ This project contains an Express.js application built with TypeScript for managi
 
 ---
 
-## Features
+### Features
+
+- Create product (Book)
+- Get all products
+- Get single product
+- Update product
+- Delete product
+- Place Order
+- Get Revenue
 
 ### Endpoints
 
