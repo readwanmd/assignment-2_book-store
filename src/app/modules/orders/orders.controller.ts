@@ -1,12 +1,14 @@
 import { Request, Response } from 'express';
 import { OrderServices } from './orders.services';
+import OrderValidationSchema from './orders.validation';
 
 // createOrder - POST
 const createOrder = async (req: Request, res: Response) => {
 	try {
 		const order = req.body;
+		const zodValidatedOrder = OrderValidationSchema.parse(order);
 
-		const result = await OrderServices.SaveOrderToDB(order);
+		const result = await OrderServices.SaveOrderToDB(zodValidatedOrder);
 		// console.log({ result });
 
 		res.status(200).json({
@@ -15,8 +17,6 @@ const createOrder = async (req: Request, res: Response) => {
 			data: result,
 		});
 	} catch (error: any) {
-		// console.log(error);
-
 		if (error.message === 'product not found') {
 			res.status(404).json({
 				success: false,

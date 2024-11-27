@@ -41,6 +41,7 @@ export const ProductSchema = new mongoose.Schema<TProduct>(
 		quantity: {
 			type: Number,
 			required: [true, 'quantity is required'],
+			min: 1,
 		},
 		isDeleted: {
 			type: Boolean,

@@ -15,6 +15,7 @@ export const OrderSchema = new Schema<TOrder>(
 		quantity: {
 			type: Number,
 			required: [true, 'quantity is required'],
+			min: 1,
 		},
 		totalPrice: {
 			type: Number,
